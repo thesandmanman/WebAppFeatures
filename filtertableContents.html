@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h2>Customers List</h2>
+&nbsp;<i class="fa fa-search" aria-hidden="true"></i>&nbsp;<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<table id="myTable" class="table">
+  <tr class="header">
+    <th>Name</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Benedikt Becker</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Sven</td>
+    <td>Sweden</td>
+  </tr>
+  <tr>
+    <td>George White</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Henry Heimlich</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Calvin McCain</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Fat Pete</td>
+    <td>Italy</td>
+  </tr>
+  <tr>
+    <td>North/South</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Dominique François</td>
+    <td>France</td>
+  </tr>
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toLowerCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toLowerCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>
